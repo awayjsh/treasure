@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .big_box {
+        position: relative;
+       border: 2px black solid;
+       width : 1000px;
+       height : 600px;
+       padding-left : 25px;
+       padding-right : 25px;
+    }
+    .company{
+        display: flex;
+        justify-content: space-between;
+    }
+    h3, h4 {
+        text-align: center;
+        margin-left : 100px;
+    }
+    .right{
+        position: absolute;
+       align-items : flex-end ;
+       right : 25px;
+    }
+    .left{
+        padding-left : 25px;
+    }
+</style>
+  
+</head>
+<body>
+  <div class="big_box">
+    <div class="company">
+      <img src="profile.jpg" alt="Profile Image">
+      <h2>Company Name</h2>
+    </div>
+    <div class ="company">
+      <div>
+        <h3>한글 이름</h3>
+        <h4>English Name</h4>
+      </div>
+      <div>
+        <p>Phone Number</p>
+        <p>Email</p>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <p class="right">description</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
