@@ -1,0 +1,51 @@
+*{
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+.frontpage{
+    height : 30px;
+    background-color: lightgray;
+    text-align: center;
+}
+
+.intro{
+    height : 300px
+}
+
+.project{
+    height : 300px;
+    background-color: lightgray;
+}
+
+.skills{
+    height : 300px;
+}
+
+.footer{
+    height : 50px;
+    color : white;
+    background-color: black;
+    position:fixed;
+    bottom : 0;
+    width : 100%;
+    text-align: center;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-provided{
+    display : none;
+}
+
+@media(max-width:470px) {
+    main,
+    section,
+    .navbar,
+    footer{
+        display:none;
+    }
+    .not-provided{
+        display:block;
+    }
+}
