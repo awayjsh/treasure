@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- 부트스트랩 CDN 링크 추가 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- 스타일 추가 -->
+  <style>
+    body {
+      background-color: white; /* 배경색을 하얀색으로 설정 */
+      color: black; /* 글자색을 검정색으로 설정 */
+    }
+    .navbar {
+      background-color: #343a40; /* 네비게이션 바 배경색을 어두운 회색으로 설정 */
+    }
+    .navbar a {
+      color: white; /* 네비게이션 바의 링크 텍스트 색상을 흰색으로 설정 */
+    }
+    .navbar .btn-primary {
+      background-color: #007bff; /* 로그아웃 버튼 파란색으로 설정 */
+    }
+    .movie-card {
+      margin-bottom: 20px; /* 각 카드 아래 여백 추가 */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-fixed-top">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'movies:index' %}">INDEX</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'movies:create' %}">CREATE</a>
+      </li>
+      {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accounts:update' %}">회원정보수정</a>
+        </li>
+        <li class="nav-item">
+          <form action="{% url 'accounts:logout' %}" method="POST" class="nav-link">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">LOGOUT</button>
+          </form>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accounts:signup' %}">회원가입</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accounts:login' %}">LOGIN</a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+  <div class="container mt-5">
+    <h1>INDEX PAGE</h1>
+    <hr>
+    {% for movie in movies %}
+      <div class="card movie-card">
+        <div class="card-body">
+          <h4 class="card-title">{{ movie.title }}</h4>
+          <p class="card-text">{{ movie.content }}</p>
+          <a href="{% url 'movies:detail' movie.pk %}" class="btn btn-primary">Detail</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

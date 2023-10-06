@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>DETAIL</h2>
+  <hr>
+  <p>{{ movie.title }}</p>
+  <p>{{ movie.content }}</p>
+  <hr>
+  <a href="{% url "movies:update" movie.pk %}">UPDATE</a>
+  <form action="{% url "movies:delete" movie.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="삭제">
+  </form>
+  <a href="{% url "movies:index" %}">[back]</a>
+</body>
+</html>
