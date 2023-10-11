@@ -10,5 +10,7 @@
     <mapping directory="$PROJECT_DIR$/230914/django_ws_1_3" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/230914/django_ws_1_4" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/230914/django_ws_1_5" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/231004/django_ws_9_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/231004/django_ws_9_2" vcs="Git" />
   </component>
 </project>
